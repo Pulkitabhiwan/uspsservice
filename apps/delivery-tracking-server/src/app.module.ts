@@ -3,6 +3,7 @@ import { DeliveryModule } from "./delivery/delivery.module";
 import { TrackingModule } from "./tracking/tracking.module";
 import { ContactInfoModule } from "./contactInfo/contactInfo.module";
 import { UserModule } from "./user/user.module";
+import { TrackingModuleModule } from "./TrackingModule/trackingmodule.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -19,6 +20,7 @@ import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
     TrackingModule,
     ContactInfoModule,
     UserModule,
+    TrackingModuleModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,
