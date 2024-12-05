@@ -1,0 +1,43 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Delivery {
+  createdAt  DateTime @default(now())
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  status     String?
+  trackingId String?
+  updatedAt  DateTime @updatedAt
+}
+
+model Tracking {
+  createdAt  DateTime @default(now())
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  location   String?
+  trackingId String?
+  updatedAt  DateTime @updatedAt
+}
+
+model ContactInfo {
+  createdAt   DateTime @default(now())
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  phoneNumber String?
+  updatedAt   DateTime @updatedAt
+}
+
+model User {
+  createdAt DateTime @default(now())
+  email     String?  @unique
+  firstName String?
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  lastName  String?
+  password  String
+  roles     Json
+  updatedAt DateTime @updatedAt
+  username  String   @unique
+}
